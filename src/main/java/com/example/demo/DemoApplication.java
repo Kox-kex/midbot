@@ -32,6 +32,10 @@ public class DemoApplication {
         driver.get("https://q.midpass.ru/ru/Home/Index");
         loginPage.logIn(telegramBot.getMapCaptcha());
         RegistrationTime registrationTime = new RegistrationTime(driver, telegramBot);
+        queueEntry(registrationTime, telegramBot);
+    }
+
+    private static void queueEntry(RegistrationTime registrationTime, TelegramBot telegramBot){
         try {
             registrationTime.passportAction();
             registrationTime.sleep(2000);
@@ -40,7 +44,8 @@ public class DemoApplication {
         } catch (Exception e) {
             e.printStackTrace();
             telegramBot.sendMessage("***Exception***", 1);
-
+            registrationTime.driver.get("https://q.midpass.ru/ru/Home/Index");
+            queueEntry(registrationTime, telegramBot);
         }
     }
 }

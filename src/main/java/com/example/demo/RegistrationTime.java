@@ -49,6 +49,7 @@ public class RegistrationTime {
                 .filter(element -> {
                     try {
                         var text = element.findElement(By.tagName("span")).getText();
+                        // TODO: 22.11.2022 тут правим для теста условие
                         return Integer.parseInt(text.substring(0, text.indexOf("/"))) != 0;
                     } catch (Exception e) {
                         System.out.println("Not available day");
@@ -117,7 +118,7 @@ public class RegistrationTime {
     }
 
     public void passportAction(){
-        sleep(1000);
+        sleep(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", pasport);
     }

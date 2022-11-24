@@ -21,7 +21,7 @@ public class LoginPage {
 
     public WebDriver driver;
 
-    public String pas = "t8N5FnR";
+    public String pas = "j4W5Bb";
 
     @FindBy(xpath = "//*[@id=\"FormLogOn\"]/div/div[2]/div[2]/div[2]/select")
     public WebElement country;

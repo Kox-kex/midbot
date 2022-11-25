@@ -44,6 +44,7 @@ public class DemoApplication {
         } catch (Exception e) {
             e.printStackTrace();
             telegramBot.sendMessage("***Exception***", 1);
+            registrationTime.sleep(2000);
             registrationTime.driver.get("https://q.midpass.ru/ru/Home/Index");
             queueEntry(registrationTime, telegramBot);
         }
